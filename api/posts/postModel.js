@@ -7,13 +7,7 @@ const PostSchema = new Schema(
         user: { type: String, required: true },
         image: { type: String },
 
-        created: Date,
+        created: {type: Date, default: Date.now},
 
-    },
-    {
-        collection: 'posts',
-        strict: true,
-        autoIndex: true
-    }
-);
+    });
 module.exports = User = mongoose.model('Post', PostSchema);
