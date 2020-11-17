@@ -7,8 +7,10 @@ const UserSchema = new Schema(
         email: { type: String, required: true },
         username: { type: String, required: true },
         password: { type: String, required: true },
-
-        created: Date,
+        image: { type: String, default:'' },
+        is_admin:{type: Boolean, default:false},
+        subscription:[{type: String}],
+        date_created: {type: Date, default:Date.now},
 
     },
     {
@@ -17,4 +19,4 @@ const UserSchema = new Schema(
         autoIndex: true
     }
 );
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);

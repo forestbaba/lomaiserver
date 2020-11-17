@@ -8,9 +8,12 @@ const mongoose = require('mongoose');
 const User = require('./api/users/user');
 const Post = require('./api/posts/post');
 const { mongoURI} = require('./helpers/config')
+const path = require('path');
 
 
 app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
+app.use(express.static(path.join(__dirname, './api/uploads')));
+
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(cors()) 

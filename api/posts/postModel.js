@@ -3,11 +3,15 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema(
     {
-        post: { type: String, required: true },
-        user: { type: String, required: true },
+        title: { type: String, required: true },
+        name:  { type: String, required: true },
+        date:  { type: Date },
+        start_date:  { type: Date },
+        end_date:  { type: Date },
+        description: { type: String },
         image: { type: String },
-
-        created: {type: Date, default: Date.now},
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+        date_created: {type: Date, default: Date.now},
 
     });
-module.exports = User = mongoose.model('Post', PostSchema);
+module.exports = User = mongoose.model('post', PostSchema);
